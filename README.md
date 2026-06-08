@@ -68,7 +68,7 @@ The script collects output from dozens of native Linux commands, organises them 
 ### Option 1 — Clone the repo
 
 ```bash
-git clone https://github.com/<your-username>/sysadmin-recon.git
+git clone https://github.com/Francis-Dadzie/sysadmin-recon.git
 cd sysadmin-recon
 chmod +x sysadmin_recon.sh
 ```
@@ -76,14 +76,14 @@ chmod +x sysadmin_recon.sh
 ### Option 2 — One-liner (curl)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<your-username>/sysadmin-recon/main/sysadmin_recon.sh \
+curl -fsSL https://raw.githubusercontent.com/Francis-Dadzie/sysadmin-recon/main/sysadmin_recon.sh \
   -o sysadmin_recon.sh && chmod +x sysadmin_recon.sh
 ```
 
 ### Option 3 — wget
 
 ```bash
-wget -q https://raw.githubusercontent.com/<your-username>/sysadmin-recon/main/sysadmin_recon.sh
+wget -q https://raw.githubusercontent.com/Francis-Dadzie/sysadmin-recon/main/sysadmin_recon.sh
 chmod +x sysadmin_recon.sh
 ```
 
