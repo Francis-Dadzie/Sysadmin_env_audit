@@ -1,7 +1,7 @@
 # 🛡️ sysadmin-recon
 
 > **A single-script Linux environment discovery tool for newly appointed Systems Administrators.**  
-> Run it on any host to instantly understand what you're managing — hardware, network, users, services, security posture, and enterprise integrations — all in one shot!
+> Run it on any host to instantly understand what you're managing — hardware, network, users, services, security posture, and enterprise integrations
 
 ---
 
@@ -24,14 +24,14 @@
 
 ## Overview
 
-`sysadmin_recon.sh` is a zero-dependency Bash script that performs a comprehensive read-only audit of a Linux system. It is designed for:
+The script performs a read-only audit of a Linux system. Designed for:
 
 - **New sysadmins** inheriting unknown infrastructure
 - **On-call engineers** who need rapid situational awareness
 - **Security teams** performing baseline assessments
 - **DevOps/SRE teams** documenting fleet configurations
 
-The script collects output from dozens of native Linux commands, organises them into 12 logical sections, and saves a timestamped report to `/tmp/`.
+The script collects output from native Linux commands, organises them into 12 logical sections, and saves a timestamped report to `/tmp/`.
 
 ---
 
@@ -58,7 +58,7 @@ The script collects output from dozens of native Linux commands, organises them 
 
 - **OS:** Any modern Linux distribution (Debian/Ubuntu, RHEL/CentOS/Rocky, Arch, SUSE, etc.)
 - **Shell:** Bash 4.0+
-- **Privileges:** `sudo` or `root` recommended for full output (the script degrades gracefully without it)
+- **Privileges:** `sudo` or `root` recommended for full output (degrades gracefully without it)
 - **Dependencies:** None beyond standard Linux coreutils — the script uses only tools already present on the system
 
 ---
@@ -73,34 +73,19 @@ cd sysadmin-recon
 chmod +x sysadmin_recon.sh
 ```
 
-### Option 2 — One-liner (curl)
+### Option 2 — curl
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Francis-Dadzie/sysadmin-recon/main/sysadmin_recon.sh \
   -o sysadmin_recon.sh && chmod +x sysadmin_recon.sh
 ```
 
-### Option 3 — wget
-
-```bash
-wget -q https://raw.githubusercontent.com/Francis-Dadzie/sysadmin-recon/main/sysadmin_recon.sh
-chmod +x sysadmin_recon.sh
-```
-
----
-
 ## Usage
 
-### Basic (recommended — run as root)
+### Basic (recommended — run with sudo privileges)
 
 ```bash
 sudo ./sysadmin_recon.sh
-```
-
-### Without sudo (reduced output)
-
-```bash
-./sysadmin_recon.sh
 ```
 
 ### Save output to a custom location
@@ -273,27 +258,18 @@ This script is **read-only** — it does not make any changes to the system. All
 However:
 - Running it as root gives full visibility but also means any bugs could theoretically cause unexpected reads of sensitive files.
 - In highly regulated environments (PCI-DSS, HIPAA), ensure report files containing system details are handled securely and deleted after review.
-- Do **not** commit report output to version control — it contains sensitive system information.
 
 ---
 
 ## Contributing
 
-Contributions welcome! To add support for a new tool, monitoring agent, or enterprise integration:
+Contributions welcome!
 
 1. Fork the repo
 2. Create a feature branch: `git checkout -b feature/add-grafana-agent-check`
 3. Add your section to `sysadmin_recon.sh` following the existing pattern
 4. Test on at least one distro
 5. Open a Pull Request with a description of what was added and why
-
-Please keep the script self-contained (no external dependencies) and ensure all new command calls are wrapped with `command -v` guards.
-
----
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
